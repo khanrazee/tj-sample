@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_02_25_204620) do
 
-  create_table "search_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "search_histories", force: :cascade do |t|
     t.text "term"
     t.text "slug"
     t.integer "count"

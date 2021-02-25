@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
   end
 
   def index
-
+    @search_history = SearchHistory.limit(200)
   end
 end
 
