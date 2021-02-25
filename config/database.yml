@@ -1,8 +1,9 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  user: root
+  user: razeekhan
+  password: 
 
 development:
   <<: *default
