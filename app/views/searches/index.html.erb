@@ -22,21 +22,21 @@
     <div class="col-12">
       <table>
         <thead>
-        <tr>
-          <th colspan="50%">Term</th>
-          <th colspan="10%">Count</th>
-          <th colspan="40%">Last Searched</th>
-        </tr>
+          <tr>
+            <th colspan="50%"> Term </th>
+            <th colspan="10%"> Count &nbsp; </th>
+            <th colspan="40%"> Last Searched </th>
+          </tr>
         </thead>
 
         <tbody>
           <%@search_history.each do |sh|%>
             <tr>
-              <td colspan="50%"><%= sh.term%></td>
-              <td colspan="10%"><%= sh.count%></td>
-              <td colspan="40%"><%= sh.updated_at.strftime('%m/%d/%Y %I:%M%p')%></td>
+              <td colspan="50%"> <%= sh.term%> </td>
+              <td colspan="10%"> <%= sh.count%> </td>
+              <td colspan="40%"> <%= sh.updated_at.strftime('%m/%d/%Y %I:%M%p')%> </td>
             </tr>
-        <%end%>
+          <%end%>
         </tbody>
       </table>
 
