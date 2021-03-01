@@ -9,15 +9,14 @@ class SearchHistoriesController < ApplicationController
       sh = SearchHistory.find_or_create_by(session_key: params[:search_key])
       sh.update(term: params[:term]) if sh.slug != to_slug(params[:term])
     end
-    render json: sh, status: 200
+    # Async call, response does not matter.
+    render json: {}, status: 200
   end
 
   def update
-    if params[:id]
-      sh = SearchHistory.find_by_session_key(params[:id])
-      if sh
-        sh.completed!
-      end
+    sh = SearchHistory.find_by_session_key(params[:id])
+    if sh
+      sh.completed!
     end
     redirect_to :root
   end
