@@ -10,27 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_233112) do
+ActiveRecord::Schema.define(version: 2021_03_01_135042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dictionaries", force: :cascade do |t|
-    t.string "word"
-    t.string "slug"
-    t.integer "count", default: 1
+  create_table "search_histories", force: :cascade do |t|
+    t.text "term"
+    t.text "slug"
+    t.string "session_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "search_histories", force: :cascade do |t|
+  create_table "searches", force: :cascade do |t|
     t.text "term"
+    t.integer "count", default: 0
     t.text "slug"
-    t.integer "count"
-    t.string "hash_match"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "term_hash"
   end
 
 end

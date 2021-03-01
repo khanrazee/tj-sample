@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DictionaryTest < ActiveSupport::TestCase
+class SearchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

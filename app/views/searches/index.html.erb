@@ -1,7 +1,7 @@
 <html>
 <head>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta title="TechJuice Sample Search"/>
+
 </head>
 <body>
 <div class="container">
@@ -19,42 +19,46 @@
       </div>
     </div>
 
-    <div class="col-12" style="display: none">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="50%"> Term </th>
-            <th colspan="10%"> Count &nbsp; </th>
-            <th colspan="40%"> Last Searched </th>
-          </tr>
-        </thead>
+    <br/>
 
-        <tbody>
-          <%@search_history.each do |sh|%>
-            <tr>
-              <td colspan="50%"> <%= sh.term%> </td>
-              <td colspan="10%"> <%= sh.count%> </td>
-              <td colspan="40%"> <%= sh.updated_at.strftime('%m/%d/%Y %I:%M%p')%> </td>
-            </tr>
-          <%end%>
-        </tbody>
-      </table>
-
+    <div class="col-12" >
+      <div id="container" style="height: 300px"></div>
     </div>
   </div>
 </div>
 </body>
 
+
 <script>
-  $( function() {
-    $( "#search-field" ).autocomplete({
-      source: "searches/suggestions",
-      minLength: 4,
-      select: function( event, ui ) {
-        log( "Selected: " + ui.label);
-      }
+  // Todo : Move to ajax call, and move js to assets.
+  document.addEventListener('DOMContentLoaded', function () {
+    Highcharts.chart('container', {
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Top 10 Searches'
+      },
+      yAxis: {
+        min: 1,
+        title: {
+          text: 'Searches (count)'
+        }
+      },
+      series: [
+      <%@searches.each do |search|%>
+        {
+          name: '<%=search.term%>',
+          data: [<%=search.count.to_i%>]
+        }
+        <%if search.id != @searches.last.id%>
+          ,
+        <%end%>
+      <%end%>
+      ]
     });
-  } );
+  });
 </script>
+
 
 </html>

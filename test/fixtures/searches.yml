@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  word: MyString
-  slug: MyString
+  term: MyText
   count: 1
 
 two:
-  word: MyString
-  slug: MyString
+  term: MyText
   count: 1
