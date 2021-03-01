@@ -9,8 +9,8 @@ getNewID = ->
   )
   uuid
 
+uniqueKey = getNewID()
 $ ->
-  uniqueKey = getNewID()
   $('#search-field').autocomplete
     source: 'searches/suggestions'
     search: (event, ui) ->
@@ -26,7 +26,8 @@ $ ->
       return
       return
   return
-$('#search-field').keyup ->
-  if $('#search-field').val() == ''
-    uniqueKey = getNewID()
-  return
+$ ->
+  $('#search-field').keyup ->
+    if $('#search-field').val().length > 3
+      uniqueKey = getNewID()
+    return
