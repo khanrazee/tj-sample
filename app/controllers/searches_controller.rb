@@ -12,7 +12,7 @@ class SearchesController < ApplicationController
   end
 
   def index
-    @searches = Search.limit(10)
+    @searches = Search.order('count, updated_at DESC').limit(10)
   end
 
 end
