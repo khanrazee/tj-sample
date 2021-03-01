@@ -2,7 +2,6 @@ getNewID = ->
   d = (new Date).getTime()
   if window.performance and typeof window.performance.now == 'function'
     d += performance.now()
-  # use high-precision timer if available
   uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) ->
     r = (d + Math.random() * 16) % 16 | 0
     d = Math.floor(d / 16)
@@ -21,7 +20,9 @@ $ ->
           search_key: uniqueKey
           term: $('#search-field').val()
         method: 'POST').done ->
-      $(this).addClass 'done'
+      $('#session_key').val uniqueKey
+      $('#complete-search').attr 'action', 'search_histories/' + uniqueKey
+      $('#sub-btn').prop 'disabled', false
       return
       return
   return

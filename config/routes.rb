@@ -7,5 +7,9 @@ Rails.application.routes.draw do
       get :suggestions
     end
   end
-  resources :search_histories, only: :create
+  resources :search_histories, only: :create do
+    member do
+      post :update
+    end
+  end
 end

@@ -15,7 +15,12 @@
       </div>
       <br/>
       <div class="col-4 pull-right">
-        <button class="btn-primary btn">Search </button>
+        <form id="complete-search" method="POST" action="search_histories/">
+
+          <input type="hidden" id="session_key" name="id">
+          <button class="btn-primary btn" id="sub-btn" disabled="disabled">Search </button>
+        </form>
+
       </div>
     </div>
 

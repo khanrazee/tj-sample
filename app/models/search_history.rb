@@ -2,6 +2,8 @@ class SearchHistory < ApplicationRecord
   # Todo: Only included to ensure to_slug is controlled via 1 place.
   include SearchesHelper
 
+  enum state: [ :active, :completed ]
+
   validates_uniqueness_of :session_key
   validates :session_key, presence: true
 
