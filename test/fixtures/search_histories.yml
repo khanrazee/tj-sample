@@ -2,12 +2,12 @@
 
 one:
   term: MyText
-  slug: MyText
+  slug: mytext
   count: 1
   hash_match: MyString
 
 two:
-  term: MyText
-  slug: MyText
-  count: 1
-  hash_match: MyString
+  term: MyText2
+  slug: mytext2
+  count: 100
+  hash_match: MyString2

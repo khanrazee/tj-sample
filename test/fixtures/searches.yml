@@ -2,8 +2,8 @@
 
 one:
   term: MyText
-  count: 1
+  count: 10
 
 two:
-  term: MyText
-  count: 1
+  term: MyText2
+  count: 108

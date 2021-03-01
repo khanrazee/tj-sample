@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       get :suggestions
     end
   end
+  resources :search_histories, only: :create
 end

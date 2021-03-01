@@ -5,7 +5,6 @@ class SearchHistory < ApplicationRecord
   validates_uniqueness_of :session_key
   validates :session_key, presence: true
 
-
   before_update :generate_slug
 
   private
